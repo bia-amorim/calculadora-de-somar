@@ -18,14 +18,56 @@ public class Calculadora {
        Double bDouble = Double.valueOf(b);
        Double resultado = aDouble + bDouble;
 
-    
-
        String operacao = a + " + " + b + " = " + resultado;
 
        modelAndView.addObject("resultado", operacao);
        return modelAndView;
+
+   }
+    @PostMapping(value="/subtrair")
+    public ModelAndView postSubtrair(@RequestParam String a, @RequestParam String b) {
+       
+       ModelAndView modelAndView = new ModelAndView("resultado");
+
+       Double aDouble = Double.valueOf(a);
+       Double bDouble = Double.valueOf(b);
+       Double resultado = aDouble - bDouble;
+
+       String operacao = a + " - " + b + " = " + resultado;
+
+       modelAndView.addObject("resultado", operacao);
+       return modelAndView;
+    }
+
+       @PostMapping(value="/multiplicar")
+       public ModelAndView postMultiplicar(@RequestParam String a, @RequestParam String b) {
+           
+           ModelAndView modelAndView = new ModelAndView("resultado");
+    
+           Double aDouble = Double.valueOf(a);
+           Double bDouble = Double.valueOf(b);
+           Double resultado = aDouble * bDouble;
+    
+           String operacao = a + " * " + b + " = " + resultado;
+    
+           modelAndView.addObject("resultado", operacao);
+           return modelAndView;
+       }
+
+        @PostMapping(value="/dividir")
+           public ModelAndView postDividir(@RequestParam String a, @RequestParam String b) {
+               
+               ModelAndView modelAndView = new ModelAndView("resultado");
+        
+               Double aDouble = Double.valueOf(a);
+               Double bDouble = Double.valueOf(b);
+               Double resultado = aDouble / bDouble;
+        
+               String operacao = a + " / " + b + " = " + resultado;
+        
+               modelAndView.addObject("resultado", operacao);
+               return modelAndView;    
    }
    
-    
     
 }
